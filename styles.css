@@ -180,11 +180,13 @@ body {
 }
 
 .card {
-  background: orange;
   min-height: 300px;
   border-radius: 8px;
   padding: 3rem;
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
 }
+
 
 .card-blue {
   position: relative;
@@ -202,21 +204,9 @@ body {
   );
 }
 
-.image-conatiner:before {
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-z-index: 500;
-  position: absolute;
-  display: block;
-  content: '';
-  background-image: url(http://droitthemes.com/wp/mak/wp-content/uploads/2018/09/service_bg.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.card-yellow {
+
+
+.card-yellow{
   background-image: -webkit-linear-gradient(
     -48deg,
     rgb(255, 211, 36) 0%,
@@ -229,6 +219,11 @@ z-index: 500;
     rgba(254, 187, 36, 0.99) 54%,
     rgba(253, 163, 35, 0.99) 100%
   );
+}
+
+
+.card:hover {
+  transform: translateY(-20px);
 }
 
 .card-violet {
