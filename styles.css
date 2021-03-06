@@ -84,6 +84,10 @@ body {
   padding-top: 2rem;
 }
 
+.pt4 {
+  padding-top: 4rem;
+}
+
 .mtb2 {
   margin-bottom: 2rem;
 }
@@ -97,6 +101,11 @@ body {
 }
 
 .sp6 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.sp8 {
   padding-top: 6rem;
   padding-bottom: 6rem;
 }
@@ -160,6 +169,11 @@ body {
 .section__heading {
   text-align: center;
   margin-bottom: 2rem;
+}
+
+.section__heading p {
+  width: 80%;
+  margin: auto;
 }
 
 .sub-heading {
@@ -256,6 +270,20 @@ body {
     rgba(3, 220, 13, 0.99) 100%
   );
 }
+
+.portfolio {
+  min-height: 300px;
+  border-radius: 8px;
+  padding: 3rem;
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+  background: orange;
+}
+
+.portfolio:hover {
+  transform: translateY(-20px);
+}
+
 /********************************
   POSITION UTILITY CLASS
 ********************************/
@@ -270,6 +298,40 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-column: 1fr 1fr;
   grid-gap: 2rem;
+}
+
+.three-by-four {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-gap: 2rem;
+}
+
+.tbf-1 {
+  grid-area: 1 / 1 / 3 / 3;
+}
+.tbf-2 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+.tbf-3 {
+  grid-area: 1 / 4 / 2 / 5;
+}
+.tbf-4 {
+  grid-area: 2 / 3 / 3 / 4;
+}
+.tbf-5 {
+  grid-area: 2 / 4 / 3 / 5;
+}
+.tbf-6 {
+  grid-area: 3 / 3 / 4 / 5;
+}
+.tbf-7 {
+  grid-area: 3 / 1 / 4 / 2;
+}
+.tbf-8 {
+  grid-area: 3 / 2 / 4 / 3;
 }
 
 /********************************
