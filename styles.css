@@ -157,6 +157,11 @@ body {
   background: var(--backgroundColor);
 }
 
+.section__heading {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .sub-heading {
   position: relative;
   display: inline-block;
@@ -187,7 +192,6 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
-
 .card-blue {
   position: relative;
   background-image: -webkit-linear-gradient(
@@ -204,9 +208,7 @@ body {
   );
 }
 
-
-
-.card-yellow{
+.card-yellow {
   background-image: -webkit-linear-gradient(
     -48deg,
     rgb(255, 211, 36) 0%,
@@ -220,7 +222,6 @@ body {
     rgba(253, 163, 35, 0.99) 100%
   );
 }
-
 
 .card:hover {
   transform: translateY(-20px);
@@ -387,9 +388,6 @@ body {
 /********************************
   SERVICES SECTION 
 ********************************/
-.services__heading {
-  text-align: center;
-}
 
 .service_icon {
   height: 60px;
