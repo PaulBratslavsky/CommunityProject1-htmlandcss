@@ -8,12 +8,13 @@
   --backgroundColor: #2b2c2c;
   --backgroundColorLight: #303131;
   --brightColor: #fff;
+  --darkColor: #4e4e4e;
   --textColor: #9f9f9f;
   --subheadingColor: #ccc;
   --headerColor: #252525;
   --logoColor: #fbd215;
   --highlightColor: #feb632;
-  --linkColor: #fff;
+  --linkColor: #fcfcfc;
   --headingColor: orange;
 }
 
@@ -182,6 +183,7 @@ body {
   display: inline-block;
   color: var(--subheadingColor);
   font-size: 3rem;
+  margin-top: 3rem;
 }
 
 .sub-heading:after {
@@ -272,6 +274,10 @@ body {
   );
 }
 
+.upercase {
+  text-transform: uppercase;
+}
+
 /********************************
   POSITION UTILITY CLASS
 ********************************/
@@ -279,6 +285,12 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
+}
+
+.three-column-position {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: minmax(300px, 100%);
 }
 
 .two-column-two-rows-position {
@@ -515,4 +527,52 @@ body {
 .portfolio:hover {
   transform: translateY(-20px);
 }
+
+/********************************
+  WORK EXPERIENCE SECTION 
+********************************/
+.experience-card {
+  background: var(--backgroundColorLight);
+  border: 1px solid var(--darkColor);
+  padding: 5rem 3rem;
+  color: var(--textColor);
+  transition: all 0.3s ease-in-out;
+
+}
+
+.experience-card__heading {
+  color: var(--linkColor);
+  margin-top: 0.5rem;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.experience-card__sub-heading {
+  margin-top: 0.3rem;
+  display: inline-block;
+  color: #706e6e;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.experience-card__text {
+  margin-top: 0.3rem;
+  display: inline-block;
+}
+
+.experience-card:hover,
+.experience-card:focus {
+  background: var(--highlightColor);
+  color: var(--headerColor);
+  border: 1px solid var(--darkColor);
+}
+
+.experience-card:hover .experience-card__sub-heading,
+.experience-card:focus .experience-card__sub-heading,
+.experience-card:hover .experience-card__heading,
+.experience-card:focus .experience-card__heading  {
+  color: var(--headerColor);
+}
+
+
 
