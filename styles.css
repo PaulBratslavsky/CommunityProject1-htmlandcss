@@ -112,6 +112,12 @@ body {
   padding-bottom: 6rem;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .button {
   padding: 0.5rem 3rem;
   background: var(--highlightColor);
@@ -124,7 +130,8 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
   background: none;
   color: var(--highlightColor);
 }
@@ -149,7 +156,8 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.button-inverse:hover {
+.button-inverse:hover,
+.button-inverse:focus {
   background: var(--highlightColor);
   color: var(--backgroundColor);
 }
@@ -240,7 +248,8 @@ body {
   );
 }
 
-.card:hover {
+.card:hover,
+.card:focus  {
   transform: translateY(-20px);
 }
 
@@ -392,11 +401,13 @@ body {
 }
 
 .header-nav__link:hover:after,
+.header-nav__link:focus:after,
 .header-nav__link:active:after {
   width: 35px;
 }
 
-.header-nav__link:hover {
+.header-nav__link:hover,
+.header-nav__link:focus {
   color: var(--highlightColor);
 }
 
@@ -575,4 +586,6 @@ body {
 }
 
 
-
+/********************************
+  HIRE ME SECTION 
+********************************/
