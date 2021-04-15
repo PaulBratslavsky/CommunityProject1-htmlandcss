@@ -65,12 +65,16 @@ p {
   line-height: 1.6;
 }
 
+input,
+textarea {
+  border: none;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background: var(--backgroundColor);
   color: var(--textColor);
 }
-
 
 /********************************
   UTILITY CLASS
@@ -249,7 +253,7 @@ body {
 }
 
 .card:hover,
-.card:focus  {
+.card:focus {
   transform: translateY(-20px);
 }
 
@@ -365,6 +369,13 @@ body {
   color: var(--logoColor);
   font-size: 2.5rem;
   font-weight: bold;
+  display: flex;
+  height: 55px;
+  width: 55px;
+  border: solid 2px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
 .header-nav ul {
@@ -548,14 +559,12 @@ body {
   padding: 5rem 3rem;
   color: var(--textColor);
   transition: all 0.3s ease-in-out;
-
 }
 
 .experience-card__heading {
   color: var(--linkColor);
   margin-top: 0.5rem;
   transition: all 0.3s ease-in-out;
-
 }
 
 .experience-card__sub-heading {
@@ -563,7 +572,6 @@ body {
   display: inline-block;
   color: #706e6e;
   transition: all 0.3s ease-in-out;
-
 }
 
 .experience-card__text {
@@ -581,11 +589,121 @@ body {
 .experience-card:hover .experience-card__sub-heading,
 .experience-card:focus .experience-card__sub-heading,
 .experience-card:hover .experience-card__heading,
-.experience-card:focus .experience-card__heading  {
+.experience-card:focus .experience-card__heading {
   color: var(--headerColor);
+}
+
+/********************************
+  HIRE ME & CONTACT SECTION 
+********************************/
+#hire {
+  background: var(--backgroundColorLight);
+}
+
+.contact-form {
+  padding: 1rem;
+}
+
+.contact-info {
+  padding: 6px;
+}
+
+.contact-info__items i {
+  margin-right: 8px;
+  color: var(--subheadingColor);
+}
+
+.contact-info__heading {
+  color: var(--subheadingColor);
+}
+
+.contact-info__item {
+  padding: 8px 0;
+}
+
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 2rem;
+}
+
+.form-input-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexhalf {
+  flex: 1 1 250px;
+}
+
+.flexfull {
+  flex: 100%;
+}
+
+.form-group {
+  margin: 6px;
+}
+
+.form-btn-mrl {
+  margin-left: 6px;
+}
+
+.form-input {
+  color: #777777;
+  background-color: #363737;
+  padding: 6px 25px;
+  margin-bottom: 20px;
+  height: 60px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  border-radius: 3px;
+  box-shadow: 0px 3px 4px 0px rgb(0 12 29 / 6%);
+  width: 100%;
+}
+
+.textarea {
+  height: 250px;
 }
 
 
 /********************************
-  HIRE ME SECTION 
+  FOOTER SECTION 
 ********************************/
+.footer {
+  background: var(--headerColor);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.social {
+  display: flex;
+}
+
+.social li {
+  margin: 4px;
+}
+
+.circle-icon {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  width: 48px;
+  height: 48px;
+  background: var(--backgroundColor);
+  text-align: center;
+  line-height: 48px;
+  display: block;
+  border-radius: 50%;
+  transition: all 0.3s linear;
+}
+
+.circle-icon:hover {
+  background: var(--textColor);
+  color: #282828;
+}
+
