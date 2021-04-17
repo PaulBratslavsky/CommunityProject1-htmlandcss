@@ -678,7 +678,6 @@ body {
   height: 250px;
 }
 
-
 /********************************
   FOOTER SECTION 
 ********************************/
@@ -710,7 +709,9 @@ body {
   background: var(--backgroundColor);
   text-align: center;
   line-height: 48px;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   transition: all 0.3s linear;
 }
@@ -719,4 +720,3 @@ body {
   background: var(--textColor);
   color: #282828;
 }
-
