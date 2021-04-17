@@ -606,6 +606,7 @@ body {
 
 .contact-info {
   padding: 6px;
+  margin-bottom: 2rem;
 }
 
 .contact-info__items i {
@@ -622,10 +623,22 @@ body {
 }
 
 .contact-form-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-left {
+  flex: 1 1 320px;
+}
+
+.column-right {
+  flex: 1 1 640px;
+}
+/* .contact-form-grid {
   display: grid;
   grid-template-columns: max-content 1fr;
   grid-gap: 2rem;
-}
+} */
 
 .form-input-flex {
   display: flex;
