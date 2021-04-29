@@ -1,0 +1,83 @@
+/********************************
+  MEDIA QUERIES
+********************************/
+@media only screen and (max-width: 1110px) {
+  
+  
+    .button,
+    .button-inverse {
+      display: block;
+      text-align: center;
+      margin: 0;
+      margin-bottom: 16px;
+      width: 100%;
+    }
+  }
+
+@media only screen and (max-width: 860px) {
+  .header-nav {
+    display: none;
+  }
+
+  .two-column-position {
+    margin-bottom: 2rem;
+  }
+
+  .button,
+  .button-inverse {
+    display: block;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    padding: 4%;
+  }
+
+  .three-by-four,
+  .two-column-position,
+  .three-column-position,
+  .two-column-two-rows-position {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-content {
+    text-align: center;
+    margin: auto;
+  }
+
+  .portfolio {
+    min-height: 100%;
+  }
+
+  .experience-card {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .contact-form-grid {
+    display: block;
+  }
+
+  .column-left,
+  .column-right {
+    width: 100%;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+}
