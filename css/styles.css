@@ -122,6 +122,29 @@ body {
   align-items: center;
 }
 
+#backtothetop {
+  position: fixed;
+
+  bottom: 16px;
+  right: 16px;
+  height: 45px;
+  width:44px;
+
+  background: var(--highlightColor);
+  color: var(--backgroundColor);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 8px;
+}
+
+#backtothetop:hover {
+  background: var(--backgroundColor);
+  color: var(--highlightColor);
+}
+
 .button {
   padding: 0.5rem 3rem;
   background: var(--highlightColor);
