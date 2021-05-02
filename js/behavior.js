@@ -17,8 +17,8 @@ const regex = [
   HELEPR FUNCTIONS
 *****************************************************/
 
-function removeLastItemsFromArray(items) {
-  return items.splice(0, items.length - 1);
+function removeNthItemsFromArray(items, nth) {
+  return items.splice(0, items.length - nth);
 }
 
 /*****************************************************
@@ -28,6 +28,43 @@ function removeLastItemsFromArray(items) {
 function backToTop(elementSelector) {
   const node = document.querySelector(elementSelector);
   node.addEventListener("click", () => window.scrollTo(0, 0));
+}
+
+/*****************************************************
+  LOCAL STORAGE
+*****************************************************/
+const tempData = {};
+
+function populateFormData(data) {
+  const node = document.querySelector(".contact-form");
+
+  for (const [key, item] of Object.entries(data)) {
+    const { value, isValid } = item;
+    node[key].value = value;
+    node[key].dataset.valid = isValid;
+    node[key].style.backgroundColor = isValid ? "#186918" : "#822554";
+  }
+}
+
+function setLocalStorage(key, value, isValid) {
+  tempData[key] = { id: key, value, isValid };
+
+  if (localStorage.getItem("localState")) {
+
+   const current = JSON.parse(localStorage.getItem("localState"))
+   const updated = {...current, ...tempData }
+   localStorage.setItem("localState", JSON.stringify(updated));
+   
+  } else {
+    localStorage.setItem("localState", JSON.stringify(tempData));
+  }
+}
+
+function getLocalStorage(key) {
+  if (localStorage.getItem(key)) {
+    const data = JSON.parse(localStorage.getItem(key));
+    populateFormData(data);
+  }
 }
 
 /*****************************************************
@@ -46,7 +83,7 @@ function checkInputWithRegex(item, regex) {
     const trimmed = value.trim();
     result = regex.test(trimmed) && trimmed.length > 0;
     applyStyling(item, result);
-    // console.log(name, value, trimmed, regex, result);
+    setLocalStorage(name, trimmed, result);
   }
 
   item.addEventListener("keyup", handleKeyUp);
@@ -55,7 +92,8 @@ function checkInputWithRegex(item, regex) {
 function handleFormSubmission(formId, inputValidation, regex) {
   const node = document.querySelector(formId);
   const elementsArray = Array.from(node);
-  const inputItemsOnly = removeLastItemsFromArray(elementsArray);
+  const inputItemsOnly = removeNthItemsFromArray(elementsArray, 2);
+  const clearButton = document.getElementById("clearButton");
 
   function resetForm(items) {
     items.forEach((item) => {
@@ -63,6 +101,8 @@ function handleFormSubmission(formId, inputValidation, regex) {
       item.dataset.valid = "false";
       item.value = "";
     });
+
+    localStorage.clear();
   }
 
   function sendData(items) {
@@ -75,15 +115,19 @@ function handleFormSubmission(formId, inputValidation, regex) {
     return items.filter((item) => item.isValid !== true);
   }
 
+  function handleClear(e) {
+    e.preventDefault();
+    resetForm(inputItemsOnly);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
-
     let isValid = [];
 
     inputItemsOnly.forEach((item) => {
       item.style.backgroundColor =
         item.dataset.valid == "true" ? "#186918" : "#822554";
-        
+
       isValid.push({
         fieldId: item.id,
         isValid: item.dataset.valid == "true",
@@ -91,6 +135,8 @@ function handleFormSubmission(formId, inputValidation, regex) {
         label: item.dataset.label,
       });
     });
+
+    console.log(isValid);
 
     if (!findError(isValid).length) {
       sendData(inputItemsOnly);
@@ -101,6 +147,7 @@ function handleFormSubmission(formId, inputValidation, regex) {
 
   inputItemsOnly.forEach((item, index) => inputValidation(item, regex[index]));
   node.addEventListener("submit", handleSubmit);
+  clearButton.addEventListener("click", handleClear);
 }
 
 /*****************************************************
@@ -109,3 +156,4 @@ function handleFormSubmission(formId, inputValidation, regex) {
 
 backToTop("#backtothetop");
 handleFormSubmission(".contact-form", checkInputWithRegex, regex);
+getLocalStorage("localState");
