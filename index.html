@@ -364,7 +364,7 @@
             vitae. Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
         </div>
-        <form class="contact-form contact-form-grid">
+        <form class="contact-form contact-form-grid" novalidate>
           <div class="contact-info column-left">
             <h4 class="contact-info__heading">Contact info</h4>
             <ul class="contact-info__items">
@@ -398,7 +398,7 @@
             <div class="form-input-flex">
               <div class="flexhalf">
                 <div class="form-group">
-                  <label for="form-name">Name</label><br />
+                  <label for="fullName">Full Name</label><br />
                   <span class="form-controlcontactName"
                     ><input
                       type="text"
@@ -406,27 +406,29 @@
                       value=""
                       size="40"
                       class="form-input"
-                      id="form-name"
+                      id="fullName"
                       aria-required="true"
                       aria-invalid="false"
                       placeholder="Type your name"
+                      data-valid="false"
                   /></span>
                 </div>
               </div>
               <div class="flexhalf">
                 <div class="form-group">
-                  <label for="form-Number">Phone Number</label><br />
+                  <label for="phoneNumber">Phone Number</label><br />
                   <span class="form-control-wrap contactPhone"
                     ><input
                       type="text"
-                      name="contactPhone"
+                      name="phoneNumber"
                       value=""
                       size="40"
                       class="form-input contact-phone"
-                      id="form-Number"
+                      id="phoneNumber"
                       aria-required="true"
                       aria-invalid="false"
                       placeholder="Type your phone number"
+                      data-valid="false"
                   /></span>
                 </div>
               </div>
@@ -436,33 +438,35 @@
                   <span class="form-control-wrap contactMail"
                     ><input
                       type="email"
-                      name="contactMail"
+                      name="email"
                       value=""
                       size="40"
                       class="form-input contact-mail"
-                      id="form-email"
+                      id="email"
                       aria-required="true"
                       aria-invalid="false"
                       placeholder="Type your email address"
+                      data-valid="false"
                   /></span>
                 </div>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="form-message">Your Message</label><br />
+              <label for="message">Your Message</label><br />
               <span class="form-control-wrap contactMessage">
                 <textarea
-                  name="contactMessage"
+                  name="message"
                   class="form-input contact-message textarea"
-                  id="form-message"
+                  id="message"
                   aria-invalid="false"
                   placeholder="Type your message here"
+                  data-valid="false"
                 ></textarea>
               </span>
             </div>
 
-            <button class="button form-btn-mrl">Submit</button>
+            <button id="submitButton" class="button form-btn-mrl">Submit</button>
           </div>
         </form>
       </div>
