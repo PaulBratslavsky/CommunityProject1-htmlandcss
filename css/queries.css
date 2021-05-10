@@ -2,21 +2,31 @@
   MEDIA QUERIES
 ********************************/
 @media only screen and (max-width: 1110px) {
-  
-  
-    .button,
-    .button-inverse {
-      display: block;
-      text-align: center;
-      margin: 0;
-      margin-bottom: 16px;
-      width: 100%;
-    }
+  .mobile-nav {
+    display: none;
   }
+
+  .button,
+  .button-inverse {
+    display: block;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+}
 
 @media only screen and (max-width: 860px) {
   .header-nav {
     display: none;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+
+  .header-mobile-icon {
+    display: grid;
   }
 
   .two-column-position {
@@ -35,7 +45,8 @@
 
 @media only screen and (max-width: 767px) {
   .container {
-    padding: 4%;
+    padding-left: 4%;
+    padding-right: 4%;
   }
 
   .three-by-four,

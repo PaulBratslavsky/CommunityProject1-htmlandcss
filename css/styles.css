@@ -4,9 +4,12 @@
 :root {
   /* sizing */
   --maxWidth: 1280px;
+  --navHeight: 95px;
+  --menuOpenWidth: 80%;
   /* color */
   --backgroundColor: #2b2c2c;
   --backgroundColorLight: #303131;
+  --backgroundColorDark: #1c1c1c;
   --brightColor: #fff;
   --darkColor: #4e4e4e;
   --textColor: #9f9f9f;
@@ -16,6 +19,9 @@
   --highlightColor: #feb632;
   --linkColor: #fcfcfc;
   --headingColor: orange;
+
+  --transition: all 0.3s ease-in-out;
+
 }
 
 /********************************
@@ -154,7 +160,7 @@ body {
   text-transform: capitalize;
   font-weight: bold;
   font-size: 2rem;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
 }
 
 .button:hover,
@@ -180,7 +186,7 @@ body {
   text-transform: capitalize;
   font-weight: bold;
   font-size: 2rem;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
 }
 
 .button-inverse:hover,
@@ -446,6 +452,101 @@ body {
 }
 
 /********************************
+    HEADER MOBILE ICON
+********************************/
+
+.header-mobile-icon {
+  display: none;
+  align-items: center;
+  justify-items: end;
+
+  
+  height: 35px;
+  width: 35px;
+  
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.header-mobile-icon span {
+  width: 100%;
+  height: 4px;
+  background: var(--logoColor);
+  display: block;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.header-mobile-icon .line-2 {
+  width: 80%;
+}
+
+.header-mobile-icon:hover.header-mobile-icon span {
+  background: var(--linkColor);
+}
+
+.header-mobile-icon:active.header-mobile-icon .line-2 {
+  background: var(--logoColor);
+  width: 115%;
+}
+
+/* We toggle this class with Javascript */
+.rotate {
+  transform: rotate(90deg);
+}
+
+/***********************************
+    MOBILE NAV STYLING
+***********************************/
+.mobile-nav {
+  position: absolute;
+  top: var(--navHeight);
+  left: 0;
+  height: calc(100vh - var(--navHeight));
+  width: var(--menuOpenWidth);
+  background: var(--backgroundColorDark);
+  border-right: solid 4px var(--headingColor);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-nav ul {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.mobile-nav li {
+  flex: 1;
+
+  
+}
+
+.mobile-nav a {
+  height: 100%;
+  padding-left: 5%;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+  color: var(--subheadingColor);
+  font-size: 1.2rem;
+
+}
+
+.mobile-nav a:hover,
+.mobile-nav a:active {
+  background: var(--darkColor);
+  color: var(--brightColor)
+}
+/* We toggle this class with Javascript */
+.show {
+  transform: translateX(0);
+}
+
+
+
+/********************************
   HOME SECTION 
 ********************************/
 
@@ -544,7 +645,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: all 0.4s ease-in-out;
+  transition: var(--transition);
   background: rgba(251, 210, 21, 0.65);
   transform: translateY(25%);
   color: var(--backgroundColor);
@@ -581,20 +682,20 @@ body {
   border: 1px solid var(--darkColor);
   padding: 5rem 3rem;
   color: var(--textColor);
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
 }
 
 .experience-card__heading {
   color: var(--linkColor);
   margin-top: 0.5rem;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
 }
 
 .experience-card__sub-heading {
   margin-top: 0.3rem;
   display: inline-block;
   color: #706e6e;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
 }
 
 .experience-card__text {

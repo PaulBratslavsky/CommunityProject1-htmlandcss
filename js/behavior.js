@@ -1,4 +1,36 @@
 /*****************************************************
+  MOBILE NAV BEHAVIOR
+*****************************************************/
+function handleMobileMenuToggle(btnId, navId) {
+  const toggleNavButton = document.getElementById(btnId);
+  const mobileMenu = document.getElementById(navId);
+
+  function handleToggleMenu() {
+    mobileMenu.classList.toggle("show");
+    toggleNavButton.classList.toggle("rotate");
+  }
+
+  toggleNavButton.addEventListener("click", handleToggleMenu);
+}
+
+/*****************************************************
+  MOBILE NAV BEHAVIOR - CLOSE MENU ON CLICK
+*****************************************************/
+function handleCloseMenuOnClick(navId, mobileNavId, btnId) {
+  const mobileMenuItems = document.getElementById(mobileNavId);
+  const toggleNavButton = document.getElementById(btnId);
+  const mobileMenu = document.getElementById(navId);
+
+  function handleClick(e) {
+    console.log(e.target);
+    mobileMenu.classList.remove("show");
+    toggleNavButton.classList.remove("rotate");
+  }
+
+  mobileMenuItems.addEventListener("click", handleClick);
+}
+
+/*****************************************************
   REGEX FOR FORM VALIDATION
 *****************************************************/
 const checkNameRegex = /^[A-Za-z ]+$/;
@@ -14,7 +46,7 @@ const regex = [
 ];
 
 /*****************************************************
-  HELEPR FUNCTIONS
+  HELEPER FUNCTIONS
 *****************************************************/
 
 function removeNthItemsFromArray(items, nth) {
@@ -50,11 +82,9 @@ function setLocalStorage(key, value, isValid) {
   tempData[key] = { id: key, value, isValid };
 
   if (localStorage.getItem("localState")) {
-
-   const current = JSON.parse(localStorage.getItem("localState"))
-   const updated = {...current, ...tempData }
-   localStorage.setItem("localState", JSON.stringify(updated));
-   
+    const current = JSON.parse(localStorage.getItem("localState"));
+    const updated = { ...current, ...tempData };
+    localStorage.setItem("localState", JSON.stringify(updated));
   } else {
     localStorage.setItem("localState", JSON.stringify(tempData));
   }
@@ -81,7 +111,7 @@ function checkInputWithRegex(item, regex) {
   function handleKeyUp(e) {
     const { name, value } = e.target;
     const trimmed = value.trim();
-    result = regex.test(trimmed) && trimmed.length > 0;
+    const result = regex.test(trimmed) && trimmed.length > 0;
     applyStyling(item, result);
     setLocalStorage(name, trimmed, result);
   }
@@ -102,7 +132,7 @@ function handleFormSubmission(formId, inputValidation, regex) {
       item.value = "";
     });
 
-    localStorage.clear();
+    localStorage.removeItem("localState");
   }
 
   function sendData(items) {
@@ -154,6 +184,8 @@ function handleFormSubmission(formId, inputValidation, regex) {
   FUNCTION CALLS
 *****************************************************/
 
+handleMobileMenuToggle("toggleNavButton", "mobileMenu");
+handleCloseMenuOnClick("mobileMenu", "mobile-nav", "toggleNavButton");
 backToTop("#backtothetop");
 handleFormSubmission(".contact-form", checkInputWithRegex, regex);
 getLocalStorage("localState");
