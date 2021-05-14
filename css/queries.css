@@ -33,6 +33,10 @@
     margin-bottom: 2rem;
   }
 
+  .home-content__heading {
+    margin-top: 40px;
+  }
+
   .button,
   .button-inverse {
     display: block;
