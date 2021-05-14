@@ -31,11 +31,37 @@ function handleCloseMenuOnClick(navId, mobileNavId, btnId) {
 }
 
 /*****************************************************
+  NAV ON SCROLL BEHAVIOR
+*****************************************************/
+function handleOnMenuScroll(navId) {
+  const nav = document.getElementById(navId);
+  // Setup isScrolling variable
+  var isScrolling;
+  let scrollPosition = 0;
+
+  window.addEventListener("scroll", applyNavStyles);
+
+  function applyNavStyles() {
+    nav.classList.add("nav-active");
+
+    // Clear our timeout throughout the scroll
+    window.clearTimeout(isScrolling);
+
+    // Tigger timeout on scroll end
+    isScrolling = setTimeout(function () {
+      nav.classList.remove("nav-active");
+    }, 700);
+  }
+}
+
+/*****************************************************
   REGEX FOR FORM VALIDATION
 *****************************************************/
 const checkNameRegex = /^[A-Za-z ]+$/;
-const checkPhoneRegex = /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
-const checkEmailRegex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+const checkPhoneRegex =
+  /^(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+const checkEmailRegex =
+  /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 const checkMessageRegex = /^[a-zA-Z0-9.,:;"'$&%!?_+=() \/ -]*$/;
 
 const regex = [
@@ -183,7 +209,7 @@ function handleFormSubmission(formId, inputValidation, regex) {
 /*****************************************************
   FUNCTION CALLS
 *****************************************************/
-
+handleOnMenuScroll("header");
 handleMobileMenuToggle("toggleNavButton", "mobileMenu");
 handleCloseMenuOnClick("mobileMenu", "mobile-nav", "toggleNavButton");
 backToTop("#backtothetop");
